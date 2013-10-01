@@ -1,0 +1,10 @@
+{
+  "name": "express-shared-routes-examples",
+  "description": "Examples for the package express shared routes",
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "3.x",
+    "express-shared-routes" : "*",
+    "ect":"*"
+  }
+}
