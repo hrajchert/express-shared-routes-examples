@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+         <!-- data-main attribute tells require.js to load
+             scripts/main.js after require.js loads. -->
+        <script type="text/javascript">
+        // Create the routes from the browser route manager. You need to provide the exported routes!
+        var exported_routes = <%- JSON.stringify(@routes.exportRoutes()) %>;
+        </script>
+        <style type="text/css">
+        li.active a {
+            font-weight: bold;
+        }
+        </style>
+    </head>
+    <body>
+        <h1>Page content</h1>
+        <% content 'body' %>
+
+        <hr/>
+        <h2>Menu</h2>
+        <ul>
+            <li <%- "class='active'" if @routes.is @route.name, 'hello-all'%>>
+                <a href="<%- @routes.getLink 'hello-all' %>">Hello Everybody!</a>
+            </li>
+            <li <%- "class='active'" if @routes.is @route.name, 'hello-person'%>>
+                <a href="<%- @routes.getLink 'hello-person', {name: 'foo'} %>">Hello Foo</a>
+            </li>
+        </ul>
+        <hr/>
+
+        <h2>Route information</h2>
+
+        <% include 'example3/_route-info' %>
+
+        <hr/>
+        <h2>Client side routes</h2>
+        Hello <input id="person_name" placeholder="your name"/> <a id="sayHello" href="javascript:void(0);">Say Hello</a>
+        <script data-main="js/example3-requirejs" src="js/require.js"></script>
+    </body>
+</html>

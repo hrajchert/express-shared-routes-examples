@@ -1,0 +1,26 @@
+This route is named <%- @route.name %><br/>
+<br/>
+<table border="1">
+    <tr>
+        <th>Method:</th>
+        <th>Value:</th>
+    </tr>
+    <tr>
+        <td>is('hello-all')</td>
+        <td><%- @routes.is @route.name, 'hello-all'%></td>
+    </tr>
+    <tr>
+        <td>isSonOf('hello-all')</td>
+        <td><%- @routes.isSonOf @route.name, 'hello-all'%></td>
+    </tr>
+
+    <tr>
+        <td>is('hello-person')</td>
+        <td><%- @routes.is @route.name, 'hello-person'%></td>
+    </tr>
+    <tr>
+        <td>isSonOf('hello-person')</td>
+        <td><%- @routes.isSonOf @route.name, 'hello-person'%></td>
+    </tr>
+
+</table>

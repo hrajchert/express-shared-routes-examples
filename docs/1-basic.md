@@ -5,13 +5,19 @@ This is a very basic example use of [Express Shared Routes](https://github.com/h
 The example creates a handler that responds to the following route `/hello/:name`. Once accessed, it will greet the person
 by `:name`, and show you a link to greet somebody else.
 
-Before reading the explanation, we recommend to take a look to the full example [here](../1-basic.js). The explanation
-can seem to involve more code that what is actually needed.
-
 To see more examples go [here](../README.md)
+
+#### Install
+Installing is quite simple, just run the following in your project's root folder.
+
+```
+npm install express-shared-routes --save
+```
 
 
 #### The code
+
+Before reading the explanation, we recommend to take a look at the [code](../1-basic.js) (it's only 19 lines of code).
 
 Ok, so lets go down to business. First we need to require the libraries and instantiate express.
 
