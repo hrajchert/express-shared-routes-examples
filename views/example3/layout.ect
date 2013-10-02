@@ -19,15 +19,16 @@
 
         <hr/>
         <h2>Menu</h2>
-        <ul>
-            <li <%- "class='active'" if @routes.is @route.name, 'hello-all'%>>
+                <ul>
+            <li <%- "class='active'" if @route.name == 'hello-all'%>>
                 <a href="<%- @routes.getLink 'hello-all' %>">Hello Everybody!</a>
             </li>
-            <li <%- "class='active'" if @routes.is @route.name, 'hello-person'%>>
+            <li <%- "class='active'" if @route.name == 'hello-person'%>>
                 <a href="<%- @routes.getLink 'hello-person', {name: 'foo'} %>">Hello Foo</a>
             </li>
         </ul>
         <hr/>
+
 
         <h2>Route information</h2>
 

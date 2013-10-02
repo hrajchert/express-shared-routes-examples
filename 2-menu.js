@@ -20,10 +20,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Creating the route manager
 var routes = new RouteManager ({injectToLocals: 'route'});
 
+// Expose the route manager to the views
+app.all('*', function (req,res,next) {
+    res.locals.routes = routes;
+    next();
+});
+
 // Simplest way to add a named route. The object literal is the route, we reference it using
 // the name, and re is the express compatible regular expression that handles the route
 routes.get({name: "hello-all", re: '/hello'}, function(req, res){
-    res.render('example2/hello-all.ect', {routes: routes});
+    res.render('example2/hello-all.ect');
 });
 
 // Example of a middleware that can get stuff from database or in this
@@ -40,7 +46,7 @@ routes.get({
     parent: routes.getRoute('hello-all'),
     mw: [getMyData],
     handler: function(req, res){
-        res.render('example2/hello-person.ect',{msg: req.msg, routes: routes});
+        res.render('example2/hello-person.ect',{msg: req.msg});
     }
 });
 
