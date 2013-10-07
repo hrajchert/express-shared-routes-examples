@@ -55,7 +55,7 @@ routes.get({name: "named-hello", re: '/hello/:name'}, function(req, res){
 });
 ```
 
-In the first line of the handler we create a `href` to greet <i>Handsome</i>, in this case `/hello/Handsome`. To do so, we ask to the <b>RouteManager</b> to
+In the first line of the handler we create a `href` to greet <i>Handsome</i>, in this case `/hello/Handsome`. To do so, we ask  the <b>RouteManager</b> to
 get us the link for the route named `named-hello` and we pass an object with the property `name`. That property is needed because
 the route is defined with the placeholder `:name`.
 
@@ -73,6 +73,6 @@ The <b>RouteManager</b> saves the <b>Routes</b> in two data structures:
 * A map which key is the name of the route
 * A list that preserves the order of inclusion
 
-The map is for fast access of the routes when call stuff like `routes.getLink`. The map is also used to export the routes to the client side (see the second example).
+The map is for fast access of the routes when calling stuff like `routes.getLink`. The map is also used to export the routes to the client side (see the [second example](2-menu.md)).
 
 The list is stored only for the `routes.applyRoutes`, so we can insert the routes in the same order they where defined.

@@ -16,8 +16,8 @@ When we access `/hello` we are going to see a page that greets everybody, has a 
 
 ![Hello everybody screenshot](2-menu-1-hello-all.png)
 
-Notice that in the route information, we are using the route `hello-all`, which is also 'son' of itself. The functionality
-works like the 'instanceof' of clasical inheritance.
+Notice that in the <b>Route information</b>, we are using the route `hello-all`, which is also 'son' of itself. The functionality
+works like the 'instanceof' of classical inheritance.
 
 If we click on the 'Hello Foo' menu link, we will access the page `/hello/foo` which matches with the regexp `/hello/:name`. The link will now be bold, indicating we are at that link.
 
@@ -34,7 +34,7 @@ fill the input and click 'Say Hello', we'll see an alert box indicating the url 
 
 ### File Structure
 
-This are the files neeeded to make this example.
+This are the files needed to make this example.
 
 * [2-menu.js](../2-menu.js)
 * public
@@ -110,9 +110,9 @@ To do the first one, we are going to pass an option to the `RouteManager` constr
 var routes = new RouteManager ({injectToLocals: 'route'});
 ```
 
-The injectToLocals option is a helper for building a navigation component. It basically inject the <b>active route</b> to `res.locals.<the-name-you-choose>`, in this case `res.locals.route`. This means that if the page is `/hello`, the view will have a variable called `route` pointing to `hello-all`, and if the page is `/hello/foo` the `route` variable will point to `hello-person`. Remember we'll need this information to show which is the active route, and make it <b>bold</b>.
+The injectToLocals option is a helper for building a navigation component. It basically inject the <b>active route</b> to `res.locals.<the-name-you-choose>`, in this case `res.locals.route`. This means that if the page is <i>/hello</i>, the view will have a variable called `route` pointing to `hello-all`, and if the page is <i>/hello/foo</i> the `route` variable will point to `hello-person`. Remember we'll need this information to show which is the active route, and make it <b>bold</b>.
 
-For the second requirement, we need to make the `RouteManager` available to all views, by adding it to `res.locals` for all requests.
+For the second requirement, we need to make the <b>RouteManager</b> available to all views, by adding it to `res.locals` for all requests.
 
 ```js
 // Expose the route manager to the views
@@ -122,7 +122,7 @@ app.all('*', function (req,res,next) {
 });
 ```
 
-I've could have added the `RouteManager` instance by configuration as well, but its safer to do it this way, so I don't assume you are always in a matched route. I'm sure that you already have something similar to add the logged in user, flashes and so on, feel free to add it there.
+I've could have added the <b>RouteManager</b> instance by configuration as well, but its safer to do it this way, so I don't assume you are always in a matched route. I'm sure that you already have something similar to add the logged in user, flashes and so on, feel free to add it there.
 
 #### Building The Menu
 
@@ -141,7 +141,7 @@ This code is located in the [layout.ect](../views/example2/layout.ect), because 
 <hr/>
 ```
 
-The `href` part is similar to what we've done in the [Basic Example](1-basic.md), but using [Coffescript](http://coffeescript.org/) ([ECT](http://ectjs.com/) uses Coffescript internally). The other part, just adds the class <i>active</i> to the `li` element when the page is the active one. Note that `@route` is the active route, while `@routes` is the `RouteManager`
+The `href` part is similar to what we've done in the [Basic Example](1-basic.md), but using [Coffescript](http://coffeescript.org/) ([ECT](http://ectjs.com/) uses Coffescript internally). The other part, just adds the class <i>active</i> to the `li` element when the page is the active one. Note that `@route` is the active route, while `@routes` is the <b>RouteManager</b>.
 
 
 #### Client-side Routes
@@ -150,7 +150,9 @@ Finally! Lets put the Shared in [Express Shared Routes](https://github.com/hrajc
 
 So, if you are trying to do something like a [SPA](http://en.wikipedia.org/wiki/Single-page_application), or you are just trying to re-render a template that has some links in it, you'll need to have the routes in the browser as well. Don't worry, we have you covered.
 
-In this simple example we are not doing a SPA nor re-rendering a template, cause that would probably need other technologies (I use [Backbone](http://backbonejs.org/) in particular). What we are doing, is creating a dynamic link from the user input. The browser code to do so can be found in the [layout.ect](../views/example2/layout.ect) and looks like this
+In this simple example we are not doing a SPA nor re-rendering a template, cause that would probably need other technologies (I use [Backbone](http://backbonejs.org/) in particular). What we are doing, is creating a dynamic link from the user input.
+
+The browser code to do so can be found in the [layout.ect](../views/example2/layout.ect) and looks like this
 
 ```rhtml
 <script src="/js/routeManager.min.js"></script>
@@ -171,9 +173,9 @@ window.onload = function() {
 </script>
 ```
 
-First, we need to include the client side `RouteManager`. In this case we add it directly, but if you use [RequireJs](http://requirejs.org/) you can check on the [third example](3-menu-requirejs.md).
+First, we need to include the client side <b>RouteManager</b>. In this case we add it directly, but if you use [RequireJS](http://requirejs.org/) you can check on the [third example](3-menu-requirejs.md).
 
-Once we have it, we create the client side RouteManager from the exported routes. Notice how we are using `<%- JSON.stringify ... `. In the future, we may add an option to get them via an AJAX request, so we don't pollute the html.
+Once we have it, we create the client side <b>RouteManager</b> from the exported routes. Notice how we are using `<%- JSON.stringify ... `. In the future, we may add an option to get them via an AJAX request, so we don't pollute the html.
 
 Then its easy as pie, we just call `routes.getLink('hello-person',{name: inputName})` as we are used to :D (and some code get the value from the input).
 

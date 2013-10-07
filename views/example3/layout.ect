@@ -4,7 +4,7 @@
          <!-- data-main attribute tells require.js to load
              scripts/main.js after require.js loads. -->
         <script type="text/javascript">
-        // Create the routes from the browser route manager. You need to provide the exported routes!
+        // Export the routes as a global variable.
         var exported_routes = <%- JSON.stringify(@routes.exportRoutes()) %>;
         </script>
         <style type="text/css">
